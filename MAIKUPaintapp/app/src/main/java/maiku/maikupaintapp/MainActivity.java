@@ -19,4 +19,6 @@ public class MainActivity extends AppCompatActivity {
     public void clearButtonClick(View view){
         customCanvas.clearCanvas();
     }
+
+    public void undoButtonClick(View view) { customCanvas.undoDraw(); }
 }
