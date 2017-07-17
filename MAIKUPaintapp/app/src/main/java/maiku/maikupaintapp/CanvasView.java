@@ -56,9 +56,14 @@ public class CanvasView extends View {
         for(Line line : lines){
             canvas.drawPath(line.getPath(), line.getPaint());
         }
+
+        if(drawingPath != null){
+	        canvas.drawPath(drawingPath, drawingPaint);
+        }
     }
 
 	public void undoDraw(){
+		drawingPath.reset();
 		lines.remove(lines.size() - 1);
 		invalidate();
 	}

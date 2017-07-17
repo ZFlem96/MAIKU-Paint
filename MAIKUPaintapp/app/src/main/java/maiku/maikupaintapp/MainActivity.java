@@ -21,4 +21,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void undoButtonClick(View view) { customCanvas.undoDraw(); }
+
+    /*
+    - Change Color
+    - Change Size
+
+    #######################
+    # Five Extra Features #
+    #######################
+    1) Undo *Completed*
+    2) Eraser
+    3) Shapes
+    4) Background Color
+    5) Random Brush Color
+     */
 }
