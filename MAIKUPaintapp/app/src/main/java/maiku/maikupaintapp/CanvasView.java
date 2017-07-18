@@ -149,6 +149,7 @@ public class CanvasView extends View {
 	}
 
 	public void clearCanvas(){
+        drawingPath.reset();
 		lines.clear();
 		invalidate();
 	}
