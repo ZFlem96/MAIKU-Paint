@@ -7,6 +7,8 @@ import android.view.View;
 public class MainActivity extends AppCompatActivity {
 
     private CanvasView customCanvas;
+    int cSwitch = 0, sSwitch = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void undoButtonClick(View view) { customCanvas.undoDraw(); }
+    public void randomColorSwitch(View v){
+        customCanvas.colorSwitch(cSwitch);
+        cSwitch++;
+    }
+    public void randomSizeSwitch(View v){
+        customCanvas.sizeSwitch(sSwitch);
+        sSwitch++;
+    }
+    public void drawRectangle(View v) {
+        customCanvas.drawRectangle();
+    }
+    public void drawCircle(View v) {
+        customCanvas.drawCircle();
+    }
+    public void drawTriangle(View v) {
+        customCanvas.drawTriangle();
+    }
+    public void change(View v) {
+        customCanvas.change();
+    }
 
     /*
     - Change Color (JJJ)
