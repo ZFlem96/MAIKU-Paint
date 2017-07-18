@@ -6,12 +6,20 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 import static android.graphics.Color.BLACK;
@@ -30,6 +38,7 @@ public class CanvasView extends View {
     private float posX, posY;
     private static final float MOVEMENT_TOLERANCE = 5;
     private boolean colorSwitchOn = false, sizeSwitchOn = false;
+	private final String PACKAGE_NAME = "maiku.maikupaintapp";
 
 
 
@@ -157,6 +166,8 @@ public class CanvasView extends View {
 
     private void drawStart(float x, float y){
         drawingPath = new Path();
+	    drawingPaint = new Paint(drawingPaint);
+
         drawingPath.moveTo(x, y);
         posX = x;
         posY = y;
@@ -201,6 +212,48 @@ public class CanvasView extends View {
         }
         return true;
     }
+
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    //Save Image
+    public boolean saveImage(){
+	    boolean imageSaved = false;
+
+		File imagePath = getOutputPath();
+	    if(imagePath != null){
+		    try{
+			    FileOutputStream output = new FileOutputStream(imagePath);
+			    canvasBitmap.compress(Bitmap.CompressFormat.PNG, 100, output);
+			    output.close();
+			    imageSaved = true;
+		    }
+		    catch(FileNotFoundException e){
+			    Log.e("File not found: ", e.getMessage());
+		    }
+		    catch(IOException e){
+			    Log.e("Error accessing file: ", e.getMessage());
+		    }
+		}
+		return imageSaved;
+    }
+
+    private File getOutputPath(){
+	    File storageDir = new File(Environment.getExternalStorageDirectory() +
+			    "/Android/data/" +
+	            PACKAGE_NAME +
+	            "/images");
+
+	    if(!storageDir.exists()){
+		    if(!storageDir.mkdirs()){
+			    return null;
+		    }
+	    }
+
+		String imageName = (new SimpleDateFormat("ddMMyyyy_HHmm").format(new Date())) + ".png";
+	    File filePath = new File(storageDir.getPath() + File.separator + imageName);
+	    return filePath;
+    }
+    //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
     public void drawCircle() {
         drawingPath.addCircle(posX,posY,60, Path.Direction.CCW);
         canvasArea.drawCircle(posX, posY, 60, drawingPaint);

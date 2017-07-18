@@ -7,4 +7,9 @@
         android:id="@+id/colorButton"
         android:title="Colors" />
     <item android:title="Item" />
+
+
+    <!-- Save Image -->
+    <item android:id="@+id/save"
+          android:title="Save"/>
 </menu>
