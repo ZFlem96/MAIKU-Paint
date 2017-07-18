@@ -2,6 +2,8 @@ package maiku.maikupaintapp;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,6 +18,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         customCanvas = (CanvasView) findViewById(R.id.canvas);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater menuInflater =  getMenuInflater();
+        menuInflater.inflate(R.menu.menu,menu);
+        return true;
     }
 
     public void clearButtonClick(View view){
