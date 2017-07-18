@@ -3,6 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="Brush" />
-    <item android:title="Colors" />
+    <item
+        android:id="@+id/colorButton"
+        android:title="Colors" />
     <item android:title="Item" />
 </menu>

@@ -40,13 +40,14 @@ public class CanvasView extends View {
 
         drawingPaint = new Paint();
         drawingPaint.setAntiAlias(true);
-        drawingPaint.setColor(Color.BLACK);
+        drawingPaint.setColor(Color.RED);
         drawingPaint.setStyle(Paint.Style.STROKE);
         drawingPaint.setStrokeJoin(Paint.Join.ROUND);
         drawingPaint.setStrokeWidth(4f);
+
     }
 //    random color/size switcher
-    public void Switch(){
+    public void Switch(Color color){
         if(colorSwitchOn){
             Random rand = new Random();
             int rnd = rand.nextInt(8);
