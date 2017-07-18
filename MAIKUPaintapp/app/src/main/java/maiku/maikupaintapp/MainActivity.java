@@ -19,4 +19,21 @@ public class MainActivity extends AppCompatActivity {
     public void clearButtonClick(View view){
         customCanvas.clearCanvas();
     }
+
+    public void undoButtonClick(View view) { customCanvas.undoDraw(); }
+
+    /*
+    - Change Color (JJJ)
+    - Change Size (JJJ)
+
+    #######################
+    # Five Extra Features #
+    #######################
+    1) Undo *Completed*
+    2) Eraser (JJJ)
+    3) Shapes (Z)
+    4) Background Color (Z)
+        - Background Color variable for the eraser
+    5) Random Brush Color (Z)
+     */
 }

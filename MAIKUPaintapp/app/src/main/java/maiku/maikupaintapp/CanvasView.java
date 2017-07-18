@@ -19,87 +19,83 @@ import java.util.ArrayList;
 
 public class CanvasView extends View {
 
-//    public int colorIndex;
-//    public Bitmap bitmap;
-//    public Canvas canvas;
-//    public Path path;
-//    public Paint paint;
-//    public float posX, posY;
-//    public final int TOLERANCE = 5;
-//    public ArrayList<PaintPath> storedPaths = new ArrayList<>();
-//
-//
-//    public CanvasView(Context context, @Nullable AttributeSet attrs) {
-//        super(context, attrs);
-//    }
-//
-//
-//    class PaintPath{
-//
-//    }
-
-    public int width, height;
-    public Bitmap bitmap;
-    private Canvas canvas;
-    private Path path;
-    Context context;
-    private Paint paint;
+    public Bitmap canvasBitmap;
+    private Canvas canvasArea;
+    private ArrayList<Line> lines;
+    private Path drawingPath;
+    private Paint drawingPaint;
     private float posX, posY;
-    private static final float TOLERANCE = 5;
+    private static final float MOVEMENT_TOLERANCE = 5;
 
 
     public CanvasView(Context c, @Nullable AttributeSet attrs) {
         super(c, attrs);
-        context = c;
 
-        path = new Path();
+        lines = new ArrayList<>();
 
-        paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setColor(Color.BLACK);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeJoin(Paint.Join.ROUND);
-        paint.setStrokeWidth(4f);
+        drawingPaint = new Paint();
+        drawingPaint.setAntiAlias(true);
+        drawingPaint.setColor(Color.BLACK);
+        drawingPaint.setStyle(Paint.Style.STROKE);
+        drawingPaint.setStrokeJoin(Paint.Join.ROUND);
+        drawingPaint.setStrokeWidth(4f);
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
 
-        bitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
-        canvas = new Canvas(bitmap);
+        canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
+        canvasArea = new Canvas(canvasBitmap);
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        canvas.drawPath(path, paint);
+        for(Line line : lines){
+            canvas.drawPath(line.getPath(), line.getPaint());
+        }
+
+        if(drawingPath != null){
+	        canvas.drawPath(drawingPath, drawingPaint);
+        }
     }
 
-    private void startTouch(float x, float y){
-        path.moveTo(x, y);
+	public void undoDraw(){
+		drawingPath.reset();
+		lines.remove(lines.size() - 1);
+		invalidate();
+	}
+
+	public void clearCanvas(){
+		lines.clear();
+		invalidate();
+	}
+
+    private void drawStart(float x, float y){
+        drawingPath = new Path();
+        drawingPath.moveTo(x, y);
         posX = x;
         posY = y;
     }
 
-    private void moveTouch(float x, float y){
+    private void drawMove(float x, float y){
         float deltaX = Math.abs(x - posX);
         float deltaY = Math.abs(y - posY);
-        if(deltaX >= TOLERANCE || deltaY >= TOLERANCE){
-            path.quadTo(posX, posY, (x + posX)/2, (y + posY)/2);
+        if(deltaX >= MOVEMENT_TOLERANCE || deltaY >= MOVEMENT_TOLERANCE){
+	        drawingPath.quadTo(posX, posY, (x + posX)/2, (y + posY)/2);
             posX = x;
             posY = y;
         }
+
+        drawingPath.lineTo(posX, posY);
     }
 
-    public void clearCanvas(){
-        path.reset();
-        invalidate();
-    }
+    private void drawEnd(){
+        drawingPath.lineTo(posX, posY);
 
-    private void stopTouch(){
-        path.lineTo(posX, posY);
+        lines.add(new Line(drawingPath, drawingPaint));
     }
 
     @Override
@@ -109,15 +105,15 @@ public class CanvasView extends View {
 
         switch(event.getAction()){
             case MotionEvent.ACTION_DOWN:
-                startTouch(x, y);
+                drawStart(x, y);
                 invalidate();
                 break;
             case MotionEvent.ACTION_MOVE:
-                moveTouch(x, y);
+                drawMove(x, y);
                 invalidate();
                 break;
             case MotionEvent.ACTION_UP:
-                stopTouch();
+                drawEnd();
                 invalidate();
                 break;
         }
