@@ -13,4 +13,330 @@
         tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="8dp" />
 
+    <TableLayout
+        android:id="@+id/toolsTableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray">
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textViewSize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="0dp"
+                android:text="Size"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="normal|bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:baselineAligned="false"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/xsmallButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setSize"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="xSmall" />
+
+            <Button
+                android:id="@+id/smallButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setSize"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="small" />
+
+            <Button
+                android:id="@+id/mediumButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setSize"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="medium" />
+
+            <Button
+                android:id="@+id/largeButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setSize"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="large" />
+
+            <Button
+                android:id="@+id/xlargeButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="false"
+                android:cropToPadding="false"
+                android:elevation="0dp"
+                android:onClick="setSize"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="xlarge"
+                android:visibility="visible" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/textViewColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="0dp"
+                android:text="Color"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="normal|bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <Button
+                android:id="@+id/colorBlackButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setColor"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="Black" />
+
+            <Button
+                android:id="@+id/colorRedButton"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="setColor"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="Red" />
+
+            <Button
+                android:id="@+id/colorOrangeButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="setColor"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="Orange" />
+
+            <Button
+                android:id="@+id/colorYellowButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="setColor"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="Yellow" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/colorGreenButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setColor"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="Green" />
+
+            <Button
+                android:id="@+id/colorBlueButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="setColor"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="Blue" />
+
+            <Button
+                android:id="@+id/colorPurpleButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="setColor"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="Purple" />
+
+            <Button
+                android:id="@+id/colorBrownButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="setColor"
+                android:scaleType="matrix"
+                android:scaleX="0.8"
+                android:scaleY="0.8"
+                android:text="Brown" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/backGround"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="0dp"
+                android:text="Extra"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="normal|bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/rndColorButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="randomColorSwitch"
+                android:text="Random Color Switcher"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/changeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="change"
+                android:text="Change Background"
+                android:textSize="14sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/rndSizeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="randomSizeSwitch"
+                android:text="Random Size Changer"
+                android:textSize="14sp" />
+
+            <Button
+                android:id="@+id/eraserButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="setColor"
+                android:text="Eraser"
+                android:textSize="14sp" />
+            <!--<Button-->
+            <!--android:text="Random Size Changer"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:id="@+id/rndSizeButton"-->
+            <!--android:onClick="randomSizeSwitch" />-->
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/Shapes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed"
+                android:padding="0dp"
+                android:text="Shapes"
+                android:textAlignment="center"
+                android:textColor="@android:color/white"
+                android:textSize="30sp"
+                android:textStyle="normal|bold" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/triButton"
+                android:layout_width="10dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="drawTriangle"
+                android:text="Triangle" />
+
+            <Button
+                android:id="@+id/rectangleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="drawRectangle"
+                android:text="Rectangle" />
+
+            <Button
+                android:id="@+id/circleButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="drawCircle"
+                android:text="Circle" />
+
+        </TableRow>
+
+    </TableLayout>
+
+
 </FrameLayout>

@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.PopupWindow;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import java.util.Random;
@@ -28,13 +29,16 @@ public class MainActivity extends AppCompatActivity {
     private CanvasView customCanvas;
     int cSwitch = 0, sSwitch = 0;
     public MenuItem colorChanger;
+    private boolean hide = true;
+    private TableLayout tools;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        tools = (TableLayout)findViewById(R.id.toolsTableLayout);
+        tools.setVisibility(View.INVISIBLE);
         customCanvas = (CanvasView) findViewById(R.id.canvas);
         int[] androidColors = getResources().getIntArray(R.array.androidcolors);
         int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
@@ -71,6 +75,14 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.toolsOption:
                 //Toggle tools visibility
+                if(hide){
+                    tools.setVisibility(View.VISIBLE);
+                    hide = false;
+                }
+                else if(!hide){
+                    hide = true;
+                    tools.setVisibility(View.INVISIBLE);
+                }
                 return true;
             case R.id.save:
                 boolean saveSuccessful = customCanvas.saveImage();
