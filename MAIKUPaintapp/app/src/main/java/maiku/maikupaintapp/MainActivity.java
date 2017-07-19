@@ -1,27 +1,15 @@
 package maiku.maikupaintapp;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.MenuPopupWindow;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.PopupWindow;
 import android.widget.TableLayout;
-import android.widget.TextView;
 
 import java.util.Random;
-import android.view.MenuItem;
-import android.view.View;
+
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TableLayout tools;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,10 +29,10 @@ public class MainActivity extends AppCompatActivity {
         tools = (TableLayout)findViewById(R.id.toolsTableLayout);
         tools.setVisibility(View.INVISIBLE);
         customCanvas = (CanvasView) findViewById(R.id.canvas);
-        int[] androidColors = getResources().getIntArray(R.array.androidcolors);
+        int[] androidColors= getResources().getIntArray(R.array.androidcolors);
         int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
         customCanvas.setBackgroundColor(randomAndroidColor);
-        
+        customCanvas.setBackgroundColorID(randomAndroidColor);
     }
 
 

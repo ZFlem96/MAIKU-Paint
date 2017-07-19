@@ -22,14 +22,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
-import static android.graphics.Color.BLACK;
-
 /**
  * Created by Randy McClure on 7/13/2017.
  */
 
 public class CanvasView extends View {
-    public int colorIndex =0;
+    public int backgroundColorID =R.color.white;
     public Bitmap canvasBitmap;
     private Canvas canvasArea;
     private ArrayList<Line> lines;
@@ -40,7 +38,12 @@ public class CanvasView extends View {
     private boolean colorSwitchOn = false, sizeSwitchOn = false;
 	private final String PACKAGE_NAME = "maiku.maikupaintapp";
 
-
+    public void setBackgroundColorID(int color){
+    backgroundColorID = color;
+}
+    public int getBackgroundColorID(){
+    return backgroundColorID;
+}
 
     public CanvasView(Context c, @Nullable AttributeSet attrs) {
         super(c, attrs);
@@ -317,37 +320,9 @@ public class CanvasView extends View {
         invalidate();
     }
     public void change() {
-        if (colorIndex==0) {
-            this.setBackgroundColor(BLACK);
-            colorIndex++;
-        }
-        else if (colorIndex==1) {
-            this.setBackgroundColor(Color.argb(255, 247, 148, 29));
-            colorIndex++;
-        }
-        else if (colorIndex==2) {
-            this.setBackgroundColor(Color.argb(255, 255, 242, 0));
-            colorIndex++;
-        }
-        else if (colorIndex==3) {
-            this.setBackgroundColor(Color.RED);
-            colorIndex++;
-        }
-        else if (colorIndex==4) {
-            this.setBackgroundColor(Color.argb(255, 57, 181, 74));
-            colorIndex++;
-        }
-        else if (colorIndex==5) {
-            this.setBackgroundColor(Color.argb(255, 0, 174, 239));
-            colorIndex++;
-        }
-        else if (colorIndex==6) {
-            this.setBackgroundColor(Color.argb(255, 133, 96, 168));
-            colorIndex++;
-        }
-        else if (colorIndex==7) {
-            this.setBackgroundColor(Color.WHITE);
-            colorIndex = 0;
-        }
+        int[] androidColors= getResources().getIntArray(R.array.androidcolors);
+        backgroundColorID = androidColors[new Random().nextInt(androidColors.length)];
+        this.setBackgroundColor(backgroundColorID);
+
     }
 }
