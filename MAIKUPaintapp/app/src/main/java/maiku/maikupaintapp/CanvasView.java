@@ -56,7 +56,7 @@ public class CanvasView extends View {
 
     }
 //    random color/size switcher
-    public void Switch(Color color){
+    public void Switch(/*Color color*/){
         if(colorSwitchOn){
             Random rand = new Random();
             int rnd = rand.nextInt(8);
