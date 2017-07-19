@@ -131,6 +131,38 @@ public class CanvasView extends View {
         }
         return colorSwitchOn;
     }
+    public void randomColorSwitch(){
+        Random rand = new Random();
+        int rnd = rand.nextInt(8);
+        //black,red,white,argb(255, 247, 148, 29),argb(255, 255, 242, 0),argb(255, 57, 181, 74), argb(255, 0, 174, 239),argb(255, 133, 96, 168)
+        switch (rnd){
+            case 0:
+                drawingPaint.setColor(Color.WHITE);
+                break;
+            case 1:
+                drawingPaint.setColor(Color.BLACK);
+                break;
+            case 2:
+                drawingPaint.setColor(Color.RED);
+                break;
+            case 3:
+                drawingPaint.setARGB(255, 247, 148, 29);
+                break;
+            case 4:
+                drawingPaint.setARGB(255, 255, 242, 0);
+                break;
+            case 5:
+                drawingPaint.setARGB(255, 57, 181, 74);
+                break;
+            case 6:
+                drawingPaint.setARGB(255, 0, 174, 239);
+                break;
+            case 7:
+                drawingPaint.setARGB(255, 133, 96, 168);
+                break;
+
+        }
+    }
     public boolean sizeSwitch(int bttnClick){
         if(bttnClick%2!=0){
             sizeSwitchOn = true;
@@ -284,23 +316,23 @@ public class CanvasView extends View {
         invalidate();
     }
 
-    public void drawRectangle() {
-        Path path = new Path();
-        path.moveTo(posX,posY);
-        path.addRect(posX,posY, posX+50, posY+350, Path.Direction.CCW);
-//                      200  300  250  350
-        canvasArea.drawRect(posX,posY, posX+50, posY+350, drawingPaint);
-        lines.add(new Line(drawingPath, new Paint(){
-            {
-                this.setColor(drawingPaint.getColor());
-                this.setStyle(drawingPaint.getStyle());
-                this.setStrokeJoin(drawingPaint.getStrokeJoin());
-                this.setStrokeWidth(drawingPaint.getStrokeWidth());
-                Switch();
-            }
-        }));
-        invalidate();
-    }
+//    public void drawRectangle() {
+//        Path path = new Path();
+//        path.moveTo(posX,posY);
+//        path.addRect(posX,posY, posX+50, posY+350, Path.Direction.CCW);
+////                      200  300  250  350
+//        canvasArea.drawRect(posX,posY, posX+50, posY+350, drawingPaint);
+//        lines.add(new Line(drawingPath, new Paint(){
+//            {
+//                this.setColor(drawingPaint.getColor());
+//                this.setStyle(drawingPaint.getStyle());
+//                this.setStrokeJoin(drawingPaint.getStrokeJoin());
+//                this.setStrokeWidth(drawingPaint.getStrokeWidth());
+//                Switch();
+//            }
+//        }));
+//        invalidate();
+//    }
     public void drawTriangle() {
         Path path = new Path();
         path.moveTo(posX,posY);//x,y
@@ -331,40 +363,9 @@ public class CanvasView extends View {
         int[] androidColors= getResources().getIntArray(R.array.androidcolors);
         backgroundColorID = androidColors[new Random().nextInt(androidColors.length)];
         this.setBackgroundColor(backgroundColorID);
+    }
+    public void changeColor(){
 
     }
-    /*
-    if (colorIndex==0) {
- -            this.setBackgroundColor(BLACK);
- -            colorIndex++;
- -        }
- -        else if (colorIndex==1) {
- -            this.setBackgroundColor(Color.argb(255, 247, 148, 29));
- -            colorIndex++;
- -        }
- -        else if (colorIndex==2) {
- -            this.setBackgroundColor(Color.argb(255, 255, 242, 0));
- -            colorIndex++;
- -        }
- -        else if (colorIndex==3) {
- -            this.setBackgroundColor(Color.RED);
- -            colorIndex++;
- -        }
- -        else if (colorIndex==4) {
- -            this.setBackgroundColor(Color.argb(255, 57, 181, 74));
- -            colorIndex++;
- -        }
- -        else if (colorIndex==5) {
- -            this.setBackgroundColor(Color.argb(255, 0, 174, 239));
- -            colorIndex++;
- -        }
- -        else if (colorIndex==6) {
- -            this.setBackgroundColor(Color.argb(255, 133, 96, 168));
- -            colorIndex++;
- -        }
- -        else if (colorIndex==7) {
- -            this.setBackgroundColor(Color.WHITE);
- -            colorIndex = 0;
- -        }
-     */
+
 }

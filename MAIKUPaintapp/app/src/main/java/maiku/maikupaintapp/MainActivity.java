@@ -37,10 +37,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void changeSize(View v){
         float brushSize;
-       switch (v.getId()){
-           case 
-       }
-       customCanvas.setBrushSize(brushSize)
+//       switch (v.getId()){
+//           case
+//       }
+//       customCanvas.setBrushSize(brushSize)
     }
 
     @Override
@@ -56,7 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
 //    public void undoButtonClick(View view) { customCanvas.undoDraw(); }
     public void randomColorSwitch(View v){
-        customCanvas.colorSwitch(cSwitch);
+        customCanvas.randomColorSwitch();
+//        colorSwitch(cSwitch);
         cSwitch++;
     }
 
@@ -96,9 +97,9 @@ public class MainActivity extends AppCompatActivity {
         customCanvas.sizeSwitch(sSwitch);
         sSwitch++;
     }
-    public void drawRectangle(View v) {
-        customCanvas.drawRectangle();
-    }
+//    public void drawRectangle(View v) {
+//        customCanvas.drawRectangle();
+//    }
     public void drawCircle(View v) {
         customCanvas.drawCircle();
     }

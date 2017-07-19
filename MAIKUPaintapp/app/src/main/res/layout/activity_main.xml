@@ -314,18 +314,49 @@
 
             <Button
                 android:id="@+id/triButton"
-                android:layout_width="10dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="drawTriangle"
                 android:text="Triangle" />
 
-            <Button
-                android:id="@+id/rectangleButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="drawRectangle"
-                android:text="Rectangle" />
+            <!--<Button-->
+                <!--android:id="@+id/rectangleButton"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:onClick="drawRectangle"-->
+                <!--android:text="Rectangle"-->
+                <!--android:visibility="gone" />-->
+
+            <!--<Button-->
+                <!--android:id="@+id/circleButton"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:onClick="drawCircle"-->
+                <!--android:text="Circle" />-->
+
+        </TableRow>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_gravity="bottom|center"
+            android:gravity="center">
+
+            <!--<Button-->
+                <!--android:id="@+id/triButton"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_weight="1"-->
+                <!--android:onClick="drawTriangle"-->
+                <!--android:text="Triangle" />-->
+
+            <!--<Button-->
+            <!--android:id="@+id/rectangleButton"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:onClick="drawRectangle"-->
+            <!--android:text="Rectangle"-->
+            <!--android:visibility="gone" />-->
 
             <Button
                 android:id="@+id/circleButton"
@@ -335,7 +366,6 @@
                 android:text="Circle" />
 
         </TableRow>
-
     </TableLayout>
 
 
