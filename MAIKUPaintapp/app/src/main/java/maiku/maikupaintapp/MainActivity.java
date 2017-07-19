@@ -31,16 +31,30 @@ public class MainActivity extends AppCompatActivity {
         customCanvas = (CanvasView) findViewById(R.id.canvas);
         int[] androidColors= getResources().getIntArray(R.array.androidcolors);
         int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
-        customCanvas.setBackgroundColor(randomAndroidColor);
         customCanvas.setBackgroundColorID(randomAndroidColor);
     }
 
     public void changeSize(View v){
         float brushSize;
-//       switch (v.getId()){
-//           case
-//       }
-//       customCanvas.setBrushSize(brushSize)
+       switch (v.getId()){
+           case R.id.xsmallButton:
+               brushSize = 4f;
+               break;
+           case R.id.smallButton:
+               brushSize = 6f;
+               break;
+           case R.id.largeButton:
+               brushSize = 10f;
+               break;
+           case R.id.xlargeButton:
+               brushSize = 12f;
+               break;
+           default:
+               //Medium Button
+               brushSize = 8f;
+               break;
+       }
+       customCanvas.setBrushSize(brushSize);
     }
 
     @Override
@@ -113,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
     /*
     - Change Color (JJJ)
     - Change Size (JJJ)
-    - Save Images (R)   https://stackoverflow.com/questions/8560501/android-save-image-into-gallery
+    - Save Images (R) *Completed??*
 
     #######################
     # Five Extra Features #
