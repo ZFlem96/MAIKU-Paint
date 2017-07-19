@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.TableLayout;
 
 import java.util.Random;
+
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TableLayout tools;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,9 +29,13 @@ public class MainActivity extends AppCompatActivity {
         tools = (TableLayout)findViewById(R.id.toolsTableLayout);
         tools.setVisibility(View.INVISIBLE);
         customCanvas = (CanvasView) findViewById(R.id.canvas);
+        int[] androidColors= getResources().getIntArray(R.array.androidcolors);
         int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
         customCanvas.setBackgroundColor(randomAndroidColor);
+<<<<<<< HEAD
+=======
         customCanvas.setBackgroundColorID(randomAndroidColor);
+>>>>>>> d772c90c14844ff5af633f8eb4c6933ad4065e8a
     }
 
     public void changeSize(View v){
