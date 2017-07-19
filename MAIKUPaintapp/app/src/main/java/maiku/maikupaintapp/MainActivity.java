@@ -43,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         int[] androidColors = getResources().getIntArray(R.array.androidcolors);
         int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
         customCanvas.setBackgroundColor(randomAndroidColor);
-        
     }
 
 
@@ -116,7 +115,7 @@ public class MainActivity extends AppCompatActivity {
     /*
     - Change Color (JJJ)
     - Change Size (JJJ)
-    - Save Images (R)   https://stackoverflow.com/questions/8560501/android-save-image-into-gallery
+    - Save Images (R) *Completed??*
 
     #######################
     # Five Extra Features #

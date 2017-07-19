@@ -168,7 +168,6 @@ public class CanvasView extends View {
 
     private void drawStart(float x, float y){
         drawingPath = new Path();
-	    drawingPaint = new Paint(drawingPaint);
 
         drawingPath.moveTo(x, y);
         posX = x;
@@ -191,6 +190,8 @@ public class CanvasView extends View {
         drawingPath.lineTo(posX, posY);
 
         lines.add(new Line(drawingPath, drawingPaint));
+
+        drawingPaint = new Paint(drawingPaint);
     }
 
     @Override
