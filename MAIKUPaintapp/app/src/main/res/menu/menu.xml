@@ -2,14 +2,16 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Brush" />
-    <item
-        android:id="@+id/colorButton"
-        android:title="Colors" />
-    <item android:title="Item" />
+    <item android:id="@+id/clearOption"
+          android:title="Clear" />
+    <item android:id="@+id/undoOption"
+          android:title="Undo"
+          app:showAsAction="ifRoom"/>
+    <item android:id="@+id/toolsOption"
+          android:title="Tools" />
 
 
     <!-- Save Image -->
     <item android:id="@+id/save"
-          android:title="Save"/>
+          android:title="Save Image"/>
 </menu>
