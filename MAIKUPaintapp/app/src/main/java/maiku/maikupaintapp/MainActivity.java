@@ -38,9 +38,24 @@ public class MainActivity extends AppCompatActivity {
     public void changeSize(View v){
         float brushSize;
        switch (v.getId()){
-           case 
+           case R.id.xsmallButton:
+               brushSize = 4f;
+               break;
+           case R.id.smallButton:
+               brushSize = 6f;
+               break;
+           case R.id.largeButton:
+               brushSize = 10f;
+               break;
+           case R.id.xlargeButton:
+               brushSize = 12f;
+               break;
+           default:
+               //Medium Button
+               brushSize = 8f;
+               break;
        }
-       customCanvas.setBrushSize(brushSize)
+       customCanvas.setBrushSize(brushSize);
     }
 
     @Override

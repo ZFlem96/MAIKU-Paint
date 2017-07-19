@@ -333,4 +333,8 @@ public class CanvasView extends View {
         this.setBackgroundColor(backgroundColorID);
 
     }
+
+    public void setBrushSize(float brushSize) {
+        
+    }
 }
