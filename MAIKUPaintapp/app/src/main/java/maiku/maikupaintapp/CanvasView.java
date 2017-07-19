@@ -257,60 +257,63 @@ public class CanvasView extends View {
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     public void drawCircle() {
-        drawingPath.addCircle(posX,posY,60, Path.Direction.CCW);
+        Path path = new Path();
+        path.moveTo(posX,posY);
+        path.addCircle(posX,posY,60, Path.Direction.CCW);
         canvasArea.drawCircle(posX, posY, 60, drawingPaint);
-//        storedPaths.add(new Path(drawingPaint, new Paint(){
-//            {
-//                this.setColor(drawingPaint.getColor());
-//                this.setStyle(drawingPaint.getStyle());
-//                this.setStrokeJoin(drawingPaint.getStrokeJoin());
-//                this.setStrokeWidth(drawingPaint.getStrokeWidth());
-//                Switch();
-//            }
-//        }));
+        lines.add(new Line(path, new Paint(){
+            {
+                this.setColor(drawingPaint.getColor());
+                this.setStyle(drawingPaint.getStyle());
+                this.setStrokeJoin(drawingPaint.getStrokeJoin());
+                this.setStrokeWidth(drawingPaint.getStrokeWidth());
+                Switch();
+            }
+        }));
         invalidate();
     }
 
     public void drawRectangle() {
-        drawingPath.addRect(posX,posY, posX+50, posY+350, Path.Direction.CCW);
+        Path path = new Path();
+        path.moveTo(posX,posY);
+        path.addRect(posX,posY, posX+50, posY+350, Path.Direction.CCW);
 //                      200  300  250  350
         canvasArea.drawRect(posX,posY, posX+50, posY+350, drawingPaint);
-//        storedPaths.add(new Path(drawingPath, new Paint(){
-//            {
-//                this.setColor(drawingPaint.getColor());
-//                this.setStyle(drawingPaint.getStyle());
-//                this.setStrokeJoin(drawingPaint.getStrokeJoin());
-//                this.setStrokeWidth(drawingPaint.getStrokeWidth());
-//                Switch();
-//            }
-//        })
-//        )
-        ;
+        lines.add(new Line(drawingPath, new Paint(){
+            {
+                this.setColor(drawingPaint.getColor());
+                this.setStyle(drawingPaint.getStyle());
+                this.setStrokeJoin(drawingPaint.getStrokeJoin());
+                this.setStrokeWidth(drawingPaint.getStrokeWidth());
+                Switch();
+            }
+        }));
         invalidate();
     }
     public void drawTriangle() {
-        drawingPath.moveTo(posX,posY);//x,y
+        Path path = new Path();
+        path.moveTo(posX,posY);//x,y
         float tmpX = posX, tmpY = posY;
         posX = posX+100;
         posY = posY+200;
-        drawingPath.lineTo(posX,posY);
-        drawingPath.moveTo(posX,posY);//x+100, y+200
+        path.lineTo(posX,posY);
+        path.moveTo(posX,posY);//x+100, y+200
         posX = posX-200;
-        drawingPath.lineTo(posX,posY);//x-100, y+200
-        drawingPath.moveTo(posX,posY);
+        path.lineTo(posX,posY);//x-100, y+200
+        path.moveTo(posX,posY);
         posX = tmpX;
         posY = tmpY;
-        drawingPath.lineTo(posX,posY);
-        canvasArea.drawPath(drawingPath, drawingPaint);
-//        storedPaths.add(new Path(drawingPath, new Paint(){
-//            {
-//                this.setColor(drawingPaint.getColor());
-//                this.setStyle(drawingPaint.getStyle());
-//                this.setStrokeJoin(drawingPaint.getStrokeJoin());
-//                this.setStrokeWidth(drawingPaint.getStrokeWidth());
-//                Switch();
-//            }
-//        }));
+        path.lineTo(posX,posY);
+        canvasArea.drawPath(path, drawingPaint);
+        lines.add(new Line(path, new Paint(){
+            {
+                this.setColor(drawingPaint.getColor());
+                this.setStyle(drawingPaint.getStyle());
+                this.setStrokeJoin(drawingPaint.getStrokeJoin());
+                this.setStrokeWidth(drawingPaint.getStrokeWidth());
+                Switch();
+            }
+        }));
         invalidate();
     }
     public void change() {
