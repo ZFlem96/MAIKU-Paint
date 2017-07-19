@@ -61,11 +61,6 @@ public class CanvasView extends View {
 
     }
 
-    public void Eraser(View v){
-
-
-    }
-
 //    random color/size switcher
     public void Switch(){
         if(colorSwitchOn){
@@ -336,6 +331,14 @@ public class CanvasView extends View {
     }
 
     public void setBrushSize(float brushSize) {
-        
+        drawingPaint.setStrokeWidth(brushSize);
+    }
+
+    public void setBrushColor(int brushColor){
+        drawingPaint.setColor(getResources().getColor(brushColor));
+    }
+
+    public void setBrushColor(){
+        drawingPaint.setColor(getResources().getColor(backgroundColorID));
     }
 }
