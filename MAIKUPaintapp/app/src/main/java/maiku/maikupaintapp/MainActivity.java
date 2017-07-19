@@ -35,6 +35,13 @@ public class MainActivity extends AppCompatActivity {
         customCanvas.setBackgroundColorID(randomAndroidColor);
     }
 
+    public void changeSize(View v){
+        float brushSize;
+       switch (v.getId()){
+           case 
+       }
+       customCanvas.setBrushSize(brushSize)
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

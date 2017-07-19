@@ -22,6 +22,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 
+import static android.graphics.Color.BLACK;
+
 /**
  * Created by Randy McClure on 7/13/2017.
  */
@@ -58,6 +60,12 @@ public class CanvasView extends View {
         drawingPaint.setStrokeWidth(4f);
 
     }
+
+    public void Eraser(View v){
+
+
+    }
+
 //    random color/size switcher
     public void Switch(){
         if(colorSwitchOn){
