@@ -365,9 +365,6 @@ public class CanvasView extends View {
         backgroundColorID = androidColors[new Random().nextInt(androidColors.length)];
         this.setBackgroundColor(backgroundColorID);
     }
-    public void changeColor(){
-
-    }
 
     public void setBrushSize(float brushSize) {
         

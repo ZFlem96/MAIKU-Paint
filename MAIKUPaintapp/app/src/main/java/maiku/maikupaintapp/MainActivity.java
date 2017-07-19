@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         customCanvas.setBackgroundColorID(randomAndroidColor);
     }
 
-    public void changeSize(View v){
+    public void setSize(View v){
         float brushSize;
        switch (v.getId()){
            case R.id.xsmallButton:
