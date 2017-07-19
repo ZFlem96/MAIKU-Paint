@@ -43,9 +43,15 @@ public class MainActivity extends AppCompatActivity {
         int[] androidColors = getResources().getIntArray(R.array.androidcolors);
         int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
         customCanvas.setBackgroundColor(randomAndroidColor);
-        
     }
 
+    public void changeSize(View v){
+        float brushSize;
+       switch (v.getId()){
+           case 
+       }
+       customCanvas.setBrushSize(brushSize)
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

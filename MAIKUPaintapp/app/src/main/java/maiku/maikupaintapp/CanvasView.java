@@ -41,7 +41,6 @@ public class CanvasView extends View {
 	private final String PACKAGE_NAME = "maiku.maikupaintapp";
 
 
-
     public CanvasView(Context c, @Nullable AttributeSet attrs) {
         super(c, attrs);
 
@@ -55,6 +54,12 @@ public class CanvasView extends View {
         drawingPaint.setStrokeWidth(4f);
 
     }
+
+    public void Eraser(View v){
+
+
+    }
+
 //    random color/size switcher
     public void Switch(){
         if(colorSwitchOn){
