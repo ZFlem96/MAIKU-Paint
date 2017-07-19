@@ -333,4 +333,38 @@ public class CanvasView extends View {
         this.setBackgroundColor(backgroundColorID);
 
     }
+    /*
+    if (colorIndex==0) {
+ -            this.setBackgroundColor(BLACK);
+ -            colorIndex++;
+ -        }
+ -        else if (colorIndex==1) {
+ -            this.setBackgroundColor(Color.argb(255, 247, 148, 29));
+ -            colorIndex++;
+ -        }
+ -        else if (colorIndex==2) {
+ -            this.setBackgroundColor(Color.argb(255, 255, 242, 0));
+ -            colorIndex++;
+ -        }
+ -        else if (colorIndex==3) {
+ -            this.setBackgroundColor(Color.RED);
+ -            colorIndex++;
+ -        }
+ -        else if (colorIndex==4) {
+ -            this.setBackgroundColor(Color.argb(255, 57, 181, 74));
+ -            colorIndex++;
+ -        }
+ -        else if (colorIndex==5) {
+ -            this.setBackgroundColor(Color.argb(255, 0, 174, 239));
+ -            colorIndex++;
+ -        }
+ -        else if (colorIndex==6) {
+ -            this.setBackgroundColor(Color.argb(255, 133, 96, 168));
+ -            colorIndex++;
+ -        }
+ -        else if (colorIndex==7) {
+ -            this.setBackgroundColor(Color.WHITE);
+ -            colorIndex = 0;
+ -        }
+     */
 }
