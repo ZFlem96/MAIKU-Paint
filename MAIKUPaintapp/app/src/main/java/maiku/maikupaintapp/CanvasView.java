@@ -237,7 +237,7 @@ public class CanvasView extends View {
     }
 
     private File getOutputPath(){
-	    File storageDir = new File(Environment.getExternalStorageDirectory() +
+	    File storageDir = new File(Environment.getExternalStorageDirectory().getAbsolutePath() +
 			    "/Android/data/" +
 	            PACKAGE_NAME +
 	            "/images");
