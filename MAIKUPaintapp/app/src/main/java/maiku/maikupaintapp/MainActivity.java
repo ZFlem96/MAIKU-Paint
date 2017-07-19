@@ -50,11 +50,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void clearButtonClick(View view){
-        customCanvas.clearCanvas();
-    }
+//    public void clearButtonClick(View view){
+//        customCanvas.clearCanvas();
+//    }
 
-    public void undoButtonClick(View view) { customCanvas.undoDraw(); }
+//    public void undoButtonClick(View view) { customCanvas.undoDraw(); }
     public void randomColorSwitch(View v){
         customCanvas.colorSwitch(cSwitch);
         cSwitch++;
@@ -63,10 +63,21 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
+            case R.id.clearOption:
+                customCanvas.clearCanvas();
+                return true;
+            case R.id.undoOption:
+                customCanvas.undoDraw();
+                return true;
+            case R.id.toolsOption:
+                //Toggle tools visibility
+                return true;
             case R.id.save:
                 boolean saveSuccessful = customCanvas.saveImage();
-                String success = saveSuccessful ? "Image Saved!" : "Image Save Failed!";
-                Toast.makeText(this, success, Toast.LENGTH_SHORT).show();
+                //String success = saveSuccessful ? "Image Saved!" : "Image Save Failed!";
+                String tsdw = "If saving worked properly, the image would be saved, but it doesn't, so it didn't.";
+                //Toast.makeText(this, success, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, tsdw, Toast.LENGTH_SHORT).show();
                 return true;
             default:
                 return true;

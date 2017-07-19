@@ -154,7 +154,9 @@ public class CanvasView extends View {
 
 	public void undoDraw(){
 		drawingPath.reset();
-		lines.remove(lines.size() - 1);
+        if(lines.size() != 0){
+            lines.remove(lines.size() - 1);
+        }
 		invalidate();
 	}
 
