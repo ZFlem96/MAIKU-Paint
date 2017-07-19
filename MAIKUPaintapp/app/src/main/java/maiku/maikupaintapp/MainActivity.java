@@ -31,11 +31,7 @@ public class MainActivity extends AppCompatActivity {
         customCanvas = (CanvasView) findViewById(R.id.canvas);
         int[] androidColors= getResources().getIntArray(R.array.androidcolors);
         int randomAndroidColor = androidColors[new Random().nextInt(androidColors.length)];
-        customCanvas.setBackgroundColor(randomAndroidColor);
-<<<<<<< HEAD
-=======
         customCanvas.setBackgroundColorID(randomAndroidColor);
->>>>>>> d772c90c14844ff5af633f8eb4c6933ad4065e8a
     }
 
     public void changeSize(View v){
