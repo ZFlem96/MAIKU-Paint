@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         customCanvas.setBrushColor();
     }
 
-    public void changeSize(View v){
+    public void setSize(View v){
         float brushSize;
        switch (v.getId()){
            case R.id.xsmallButton:
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
        customCanvas.setBrushSize(brushSize);
     }
 
-    public void changeColor(View v){
+    public void setColor(View v){
         int brushColor;
         switch (v.getId()){
             case R.id.colorBlueButton:
@@ -86,11 +86,13 @@ public class MainActivity extends AppCompatActivity {
             case R.id.colorYellowButton:
                 brushColor = Color.YELLOW;
                 break;
-            default:{
+            case R.id.colorBlackButton:
+                brushColor = Color.BLACK;
+                break;
+            default:
                 //colorBlackButton is set to be the default.
                 brushColor = Color.BLACK;
             }
-        }
         customCanvas.setBrushColor(brushColor);
     }
 
