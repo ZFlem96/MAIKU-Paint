@@ -1,5 +1,6 @@
 package maiku.maikupaintapp;
 
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -34,7 +35,11 @@ public class MainActivity extends AppCompatActivity {
         customCanvas.setBackgroundColorID(randomAndroidColor);
     }
 
-    public void setSize(View v){
+    public void Eraser(View v){
+        customCanvas.setBrushColor();
+    }
+
+    public void changeSize(View v){
         float brushSize;
        switch (v.getId()){
            case R.id.xsmallButton:
@@ -50,11 +55,43 @@ public class MainActivity extends AppCompatActivity {
                brushSize = 12f;
                break;
            default:
-               //Medium Button
+               //Medium Button set as default.
                brushSize = 8f;
                break;
        }
        customCanvas.setBrushSize(brushSize);
+    }
+
+    public void changeColor(View v){
+        int brushColor;
+        switch (v.getId()){
+            case R.id.colorBlueButton:
+                brushColor = R.color.blue;
+                break;
+            case R.id.colorBrownButton:
+                brushColor = R.color.brown;
+                break;
+            case R.id.colorGreenButton:
+                brushColor = R.color.green;
+                break;
+            case R.id.colorOrangeButton:
+                brushColor = R.color.orange;
+                break;
+            case R.id.colorPurpleButton:
+                brushColor = R.color.purple;
+                break;
+            case R.id.colorRedButton:
+                brushColor = R.color.red;
+                break;
+            case R.id.colorYellowButton:
+                brushColor = Color.YELLOW;
+                break;
+            default:{
+                //colorBlackButton is set to be the default.
+                brushColor = Color.BLACK;
+            }
+        }
+        customCanvas.setBrushColor(brushColor);
     }
 
     @Override

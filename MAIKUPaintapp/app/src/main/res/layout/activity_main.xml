@@ -277,7 +277,7 @@
                 android:id="@+id/eraserButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:onClick="setColor"
+                android:onClick="Eraser"
                 android:text="Eraser"
                 android:textSize="14sp" />
             <!--<Button-->
