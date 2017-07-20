@@ -65,29 +65,32 @@ public class MainActivity extends AppCompatActivity {
     public void randomSizeSwitch(View v){
 //        customCanvas.sizeSwitch(sSwitch);
 //        sSwitch++;
-        int[] sizes = {4, 6, 8, 10, 12};
+//        int[] sizes = {4, 6, 8, 10, 12};
+        int[] buttonIDs = {R.id.xsmallButton, R.id.smallButton, R.id.mediumButton, R.id.largeButton, R.id.xlargeButton};
+
         Random ran = new Random();
-        float brushSize = 0;
-        int s = sizes[ran.nextInt(sizes.length)];
-        switch (s){
-            case 4:
-                brushSize = 4f;
-                break;
-            case 6:
-                brushSize = 6f;
-                break;
-            case 10:
-                brushSize = 10f;
-                break;
-            case 12:
-                brushSize = 12f;
-                break;
-            case 8:
-                //Medium Button set as default.
-                brushSize = 8f;
-                break;
-        }
-        customCanvas.setBrushSize(brushSize);
+//        float brushSize = 0;
+        int s = buttonIDs[ran.nextInt(buttonIDs.length)];
+        setSize(findViewById(s));
+//        switch (s){
+//            case 4:
+//                brushSize = 4f;
+//                break;
+//            case 6:
+//                brushSize = 6f;
+//                break;
+//            case 10:
+//                brushSize = 10f;
+//                break;
+//            case 12:
+//                brushSize = 12f;
+//                break;
+//            case 8:
+//                //Medium Button set as default.
+//                brushSize = 8f;
+//                break;
+//        }
+//        customCanvas.setBrushSize(brushSize);
     }
     public void setColor(View v){
         int brushColor;
