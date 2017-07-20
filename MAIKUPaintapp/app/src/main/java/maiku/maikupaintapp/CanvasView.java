@@ -29,7 +29,7 @@ import static android.graphics.Color.BLACK;
  */
 
 public class CanvasView extends View {
-    public int backgroundColorID =R.color.white;
+    public int backgroundColorID =R.color.white, backoundColorIndex = 0;
     public Bitmap canvasBitmap;
     private Canvas canvasArea;
     private ArrayList<Line> lines;
@@ -356,9 +356,67 @@ public class CanvasView extends View {
         invalidate();
     }
     public void change() {
-        int[] androidColors= getResources().getIntArray(R.array.androidcolors);
-        backgroundColorID = androidColors[new Random().nextInt(androidColors.length)];
-        this.setBackgroundColor(backgroundColorID);
+//        int[] androidColors= getResources().getIntArray(R.array.androidcolors);
+//        backgroundColorID = androidColors[new Random().nextInt(androidColors.length)];
+//        this.setBackgroundColor(backgroundColorID);
+
+        if (backoundColorIndex==0) {
+//            this.setBackgroundColor(Color.RED);
+            backgroundColorID = R.color.orange;
+            backoundColorIndex++;
+        }
+               else if (backoundColorIndex==1) {
+//            this.setBackgroundColor(Color.RED);
+            backgroundColorID = R.color.red;
+            backoundColorIndex++;
+        }
+               else if (backoundColorIndex==2) {
+//            this.setBackgroundColor(Color.RED);
+            backgroundColorID = R.color.darkblue;
+            backoundColorIndex++;
+        }
+              else if (backoundColorIndex==3) {
+//                        this.setBackgroundColor(Color.RED);
+            backgroundColorID = R.color.darkpurple;
+            backoundColorIndex++;
+              }
+               else if (backoundColorIndex==4) {
+//                        this.setBackgroundColor(Color.argb(255, 57, 181, 74));
+            backgroundColorID = R.color.darkgreen;
+            backoundColorIndex++;
+                    }
+               else if (backoundColorIndex==5) {
+                        this.setBackgroundColor(Color.argb(255, 0, 174, 239));
+            backgroundColorID = R.color.darkorange;
+
+            backoundColorIndex++;
+                    }
+                else if (backoundColorIndex==6) {
+//                        this.setBackgroundColor(Color.argb(255, 133, 96, 168));
+            backgroundColorID = R.color.darkred;
+                        backoundColorIndex++;
+                    }
+        else if (backoundColorIndex==7) {
+//            this.setBackgroundColor(Color.RED);
+            backgroundColorID = R.color.green;
+            backoundColorIndex++;
+        }
+        else if (backoundColorIndex==8) {
+//            this.setBackgroundColor(Color.RED);
+            backgroundColorID = R.color.purple;
+            backoundColorIndex++;
+        }
+        else if (backoundColorIndex==9) {
+//            this.setBackgroundColor(Color.RED);
+            backgroundColorID = R.color.blue;
+            backoundColorIndex++;
+        }
+                else  {
+//                        this.setBackgroundColor(Color.WHITE);
+            backgroundColorID = R.color.white;
+                        backoundColorIndex = 0;
+                    }
+                    setBackgroundColor(getResources().getColor(backgroundColorID));
     }
 
     public void setBrushSize(float brushSize) {
