@@ -84,14 +84,11 @@ public class MainActivity extends AppCompatActivity {
                 brushColor = R.color.red;
                 break;
             case R.id.colorYellowButton:
-                brushColor = Color.YELLOW;
-                break;
-            case R.id.colorBlackButton:
-                brushColor = Color.BLACK;
+                brushColor = R.color.yellow;
                 break;
             default:
                 //colorBlackButton is set to be the default.
-                brushColor = Color.BLACK;
+                brushColor = R.color.black;
             }
         customCanvas.setBrushColor(brushColor);
     }
